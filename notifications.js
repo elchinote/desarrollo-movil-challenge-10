@@ -8,7 +8,7 @@ const PUSH_ENDPOINT = 'https://your-server.com/users/push-token';
 
 
 export async function registerForPushNotificationsAsync() {
-    console.warn("register")
+    // console.warn("register")
 
     const { status: existingStatus } = await Permissions.getAsync(
     Permissions.NOTIFICATIONS
@@ -19,7 +19,7 @@ export async function registerForPushNotificationsAsync() {
   // iOS won't necessarily prompt the user a second time.
   if (existingStatus !== 'granted') {
 
-    console.warn("register3")
+    // console.warn("register3")
 
     // Android remote notification permissions are granted during the app
     // install, so this will only ask on iOS
@@ -37,7 +37,7 @@ export async function registerForPushNotificationsAsync() {
   let token = await Notifications.getExpoPushTokenAsync(
   );
 
-  console.warn("token",token)
+//   console.warn("token",token)
     setToken(auth.currentUser.uid , token)
 
 
