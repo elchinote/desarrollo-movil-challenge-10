@@ -2,12 +2,12 @@ import firebase from 'firebase'
 import 'firebase/firestore'
 
 const config = {
-  apiKey: 'AIzaSyDcvAVDGSr5otrT1HeJOZK44jZ8R6iM6aI',
-  authDomain: 'coderhouse-test.firebaseapp.com',
-  databaseURL: 'https://coderhouse-test.firebaseio.com',
-  projectId: 'coderhouse-test',
-  storageBucket: 'coderhouse-test.appspot.com',
-  messagingSenderId: '834425741739',
+  apiKey: "AIzaSyCj2CFgcaf6mZDym9nhhg_oorF9Ru6PXK4",
+  authDomain: "appchallenge9.firebaseapp.com",
+  databaseURL: "https://appchallenge9.firebaseio.com",
+  projectId: "appchallenge9",
+  storageBucket: "appchallenge9.appspot.com",
+  messagingSenderId: "248849209678"
 }
 
 firebase.initializeApp(config)
@@ -23,6 +23,7 @@ db.settings({
 
 export const getCurrentUser = () => {
   if (auth.currentUser) {
+    // console.warn("user",auth.currentUser)
     return Promise.resolve(auth.currentUser)
   }
 

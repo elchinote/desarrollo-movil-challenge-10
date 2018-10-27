@@ -7,6 +7,10 @@ import { setArtistAsFavorite, favoritesCollection } from './../firebase/artists'
 import { getCurrentUser } from '../firebase'
 
 import artistas from '../artists'
+import {setToken} from '../firebase/token';
+import { db, auth } from '../firebase/index'
+
+
 
 class HomeScreen extends React.Component {
   state = {
@@ -24,6 +28,9 @@ class HomeScreen extends React.Component {
       })
       this.setState({ favoritos })
     })
+
+    
+
   }
 
   componentWillUnmount() {

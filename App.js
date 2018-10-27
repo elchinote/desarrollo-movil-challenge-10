@@ -9,6 +9,16 @@ import AuthLoadingScreen from './screens/AuthLoadingScreen'
 
 import firebase, { db } from './firebase'
 
+import {registerForPushNotificationsAsync} from './notifications'
+import { setToken } from './firebase/token'
+
+
+import {
+  Notifications,
+} from 'expo';
+
+
+
 const AppStack = createBottomTabNavigator(
   {
     Home: HomeScreen,
@@ -55,7 +65,23 @@ const MainNavigator = createSwitchNavigator(
 )
 
 export default class App extends Component {
+  state = {
+    notification: {},
+  };
+
+  componentWillMount(){
+    registerForPushNotificationsAsync()
+    this._notificationSubscription = Notifications.addListener(this._handleNotification);
+
+  }
+
+  _handleNotification = (notification) => {
+    this.setState({notification: notification});
+    alert(this.state.notification.origin)
+  };
+
   render() {
     return <MainNavigator />
+    
   }
 }
